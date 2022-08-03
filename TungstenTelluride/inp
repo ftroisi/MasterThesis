@@ -1,0 +1,110 @@
+
+
+CalculationMode = gs
+
+ExtraStates =30
+PeriodicDimensions = 3
+FromScratch =yes
+RestartWrite =no
+
+ParKPoints = auto
+ParStates=no
+ParDomains=auto
+
+SCFCalculateStress = yes
+
+#ConvForce = 1.0e-9
+GOFireMass = 1.00
+#GOObjective=minimize_forces
+GOCenter = no
+GOMaxIter =200
+GOMethod = fire
+GOTolerance = 0.0001*eV/angstrom
+
+
+SpinComponents=unpolarized
+
+SmearingFunction = fermi_dirac
+Smearing = 0.0036749309/27.211385
+
+a_B = 0.52917721067
+
+BoxShape = parallelepiped
+
+EigenSolver = rmmdiis
+#EigenSolver = cg
+
+
+Mixing =0.2
+MixingSchem = diis
+MixingPreconditioner = yes 
+MaximumIter =2000
+ConvRelDens = 1e-6
+#ConvEigenError = yes
+#RestartWriteInterval = 200
+
+MixField = density
+StatesPack = yes
+
+ExperimentalFeatures = yes
+
+a =   1.000/a_B
+LL = 1.000000000/a_B
+
+%LatticeParameters
+a | a | LL
+%
+
+
+%Species
+  'W' | species_pseudo | set | hgh_lda_sc 
+  'Te' | species_pseudo | set | hgh_lda
+%
+
+Spacing = 0.20
+
+#KPointsUseSymmetries = no
+%KPointsGrid
+12 | 10 | 6
+%
+
+#%KPointsPath
+#0.5 0.0. 0.0 X
+#0.0 0.0 0.0 G
+# 0.0 0.5 0.0 Y
+#%
+
+
+%Output
+ geometry | "output_format" |   xcrysden
+%
+
+#XYZCoordinates='posi.xyz'
+%LatticeVectors
+   3.477000000 | 0.000000000 | 0.000000000
+   0.000000000 | 6.249000000 | 0.000000000
+   0.000000000 | 0.000000000 | 14.018000000
+%
+
+
+%ReducedCoordinates
+'W'   |      0.0000000000    |      0.5803654574     |     0.4997162531  
+'W'   |      0.0000000000    |      0.0662431386     |     0.0152591661  
+'Te'  |      0.0000000000    |      0.8352873299     |     0.6557030350  
+'Te'  |      0.0000000000    |      0.6691030023     |     0.1094854190  
+'Te'  |      0.0000000000    |      0.3214844811     |     0.8592788075  
+'Te'  |      0.0000000000    |      0.1832169055     |     0.4054502321  
+'W'   |      0.5000000000    |     -0.5803654574     |     0.9997162531  
+'W'   |      0.5000000000    |     -0.0662431386     |     0.5152591661  
+'Te'  |      0.5000000000    |     -0.8352873299     |     1.1557030350  
+'Te'  |      0.5000000000    |     -0.6691030023     |     0.6094854190  
+'Te'  |      0.5000000000    |     -0.3214844811     |     1.3592788075  
+'Te'  |      0.5000000000    |     -0.1832169055     |     0.9054502321  
+%
+ 
+
+
+
+
+
+
